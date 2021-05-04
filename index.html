@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <input type="password" id="user1" placeholder="Email" />
+	<input type="password" id="pass1" placeholder="OTP" />
+    
+	<button id="validate">Reset</button>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="{% static 'js/materialize.min.js' %}"></script>
+<script>
+	 document.getElementById("validate").addEventListener("click",validatePassword);
+     function validatePassword(e){
+        e.preventDefault();
+        var first_user=document.getElementById("user1").value;
+        var first_pwd=document.getElementById("pass1").value;
+
+        if(first_pwd == null || first_pwd == '' , first_user == null || first_user ==''){
+            M.toast({
+                html:'NO password entered'
+            });
+            return false;
+        }else{
+			if(first_pwd !== first_user){
+				M.toast({
+					html:'Password not Matched'
+				});
+			}else{
+				M.toast({
+					html:'Password  Matched'
+				});
+
+                window.setTimeout(function(){
+                    window.location.href="https://materializecss.com/getting-started.html"
+                },5000);
+
+			};
+		};
+};
+
+
+         	
+
+
+
+
+
+
+ </script>
+
+</body>
+</html>
+
+
